@@ -1,4 +1,4 @@
-from typing import List, Dict, Any, Optional, Union
+from typing import List, Dict, Any, Optional, Union, Tuple
 import re
 import json
 import os
@@ -714,6 +714,85 @@ def count_text_components(text: str) -> int:
     )
     return len(chinese_chars) + len(english_words) + len(punctuation)
 
+
+def populate_template(template: str, variables: dict[str, Any]) -> str:
+    from jinja2 import Template, StrictUndefined
+    compiled_template = Template(template, undefined=StrictUndefined)
+    try:
+        return compiled_template.render(**variables)
+    except Exception as e:
+        raise Exception(f"Error during jinja template rendering: {type(e).__name__}: {e}")
+
+def load_llm(
+    model_name_or_path: str,
+    tokenizer_name_or_path: Optional[str] = None,
+    gpu_num: int = 1,
+    lora_model_name_or_path: Optional[str] = None,
+    *,
+    llm_kwargs: Optional[Dict[str, Any]] = None,
+    sampling_kwargs: Optional[Dict[str, Any]] = None,
+):
+    """
+    Load a vLLM model and build default SamplingParams.
+
+    Args:
+        model_name_or_path: HF model name or local path.
+        tokenizer_name_or_path: HF tokenizer name or local path. Defaults to model_name_or_path.
+        gpu_num: Tensor parallel size.
+        lora_model_name_or_path: If provided, enables LoRA. (Note: actual LoRA loading may require extra args.)
+        llm_kwargs: Extra kwargs forwarded to vllm.LLM(...).
+        sampling_kwargs: Extra kwargs forwarded to vllm.SamplingParams(...).
+
+    Returns:
+        (llm, sampling_params)
+    """
+    from vllm import LLM, SamplingParams
+    if gpu_num < 1:
+        raise ValueError(f"gpu_num must be >= 1, got {gpu_num}")
+
+    llm_kwargs = dict(llm_kwargs or {})
+    sampling_kwargs = dict(sampling_kwargs or {})
+
+    llm_init_kwargs: Dict[str, Any] = {
+        "model": model_name_or_path,
+        "tokenizer": tokenizer_name_or_path or model_name_or_path,
+        "tokenizer_mode": "slow",
+        "tensor_parallel_size": gpu_num,
+        "enable_lora": bool(lora_model_name_or_path),
+        **llm_kwargs,
+    }
+
+    llm = LLM(**llm_init_kwargs)
+
+    default_sampling: Dict[str, Any] = {
+        "n": 1,
+        "max_tokens": 1024,
+        "top_p": 1.0,
+        "temperature": 0.0,
+        "top_k": 1,
+    }
+
+    sampling_params = SamplingParams(**{**default_sampling, **sampling_kwargs})
+
+    return llm, sampling_params
+
+def prepare_batch_prompts(prompts_kwargs: List[dict[str, Any]], prompt_template: str, system_prompt='') -> List[str]:
+    """
+    Prepare a batch of prompts for inference.
+    """
+    prompts = [populate_template(prompt_template, prompt_kwarg) for prompt_kwarg in prompts_kwargs]
+    if system_prompt == '':
+        sys_prompt = 'You are a helpful AI assistant.'
+    else:
+        sys_prompt = system_prompt
+    system_prompts = [sys_prompt for _ in prompts]
+    message_list = []
+    for prompt, sys_prompt in zip(prompts, system_prompts):
+        message_list.append([
+                {"role": "system", "content": sys_prompt},
+                {"role": "user", "content": prompt}
+            ])
+    return message_list
 
 if __name__ == '__main__':
     # 测试文本统计功能

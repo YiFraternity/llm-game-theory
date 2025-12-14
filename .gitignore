@@ -5,3 +5,8 @@ __pycache__/
 outputs/
 exp_results/
 *.egg-info
+logs/
+output/
+scripts/
+.DS_Store
+answer/
