@@ -1,0 +1,38 @@
+dataset_path: |
+  outputs/Q4/overall/merged_results.json
+dataset_split: "test"
+prompt_template: |
+  You are a reviewer assigned to rank multiple solutions to the same math problem. Your evaluation must be based solely on the following three criteria:
+
+  **Accuracy**: Is the reasoning correct, and does the solution produce the correct answer?
+  **Logical Rigor**: Is the problem-solving process well-structured, justified, and logically sound at each step?
+  **Clarity of Explanation**: Is the reasoning clearly explained, using appropriate notation and terminology?
+
+  Please strictly follow the format below:
+
+  Here is the question and the options:
+  [Question]
+  {{prompt}}
+  ---
+
+  [Solution - 1]
+  {{resps[0]}}
+  [Solution - 2]
+  {{resps[1]}}
+  [Solution - 3]
+  {{resps[2]}}
+  [Solution - 4]
+  {{resps[3]}}
+  [Solution - 5]
+  {{resps[4]}}
+  [Solution - 6]
+  {{resps[5]}}
+
+  **Output Format (Rank from best to worst):**
+  1. Solution x
+  2. Solution y
+  3. Solution z
+  ...
+
+  You must rank **all six solutions**, without skipping or tying any of them.
+  Please Note: You must return the **final ordered list by solution number** first, and then provide the explanation.

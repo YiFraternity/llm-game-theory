@@ -1,0 +1,50 @@
+{
+    "chatgpt-4o-latest-20241120": {
+        "1": "chatgpt-4o-latest-20241120",
+        "2": "gpt-4o-2024-05-13",
+        "3": "claude-3-5-sonnet-20241022",
+        "4": "claude-3-5-haiku-20241022",
+        "5": "claude-3-opus-20240229",
+        "6": "gpt-4o-2024-08-06"
+    },
+    "gpt-4o-2024-05-13": {
+        "1": "chatgpt-4o-latest-20241120",
+        "2": "gpt-4o-2024-05-13",
+        "3": "claude-3-5-sonnet-20241022",
+        "4": "claude-3-5-haiku-20241022",
+        "5": "claude-3-opus-20240229",
+        "6": "gpt-4o-2024-08-06"
+    },
+    "claude-3-5-sonnet-20241022": {
+        "1": "chatgpt-4o-latest-20241120",
+        "2": "gpt-4o-2024-05-13",
+        "3": "claude-3-5-sonnet-20241022",
+        "4": "claude-3-5-haiku-20241022",
+        "5": "claude-3-opus-20240229",
+        "6": "gpt-4o-2024-08-06"
+    },
+    "claude-3-5-haiku-20241022": {
+        "1": "chatgpt-4o-latest-20241120",
+        "2": "gpt-4o-2024-05-13",
+        "3": "claude-3-5-sonnet-20241022",
+        "4": "claude-3-5-haiku-20241022",
+        "5": "claude-3-opus-20240229",
+        "6": "gpt-4o-2024-08-06"
+    },
+    "claude-3-opus-20240229": {
+        "1": "chatgpt-4o-latest-20241120",
+        "2": "gpt-4o-2024-05-13",
+        "3": "claude-3-5-sonnet-20241022",
+        "4": "claude-3-5-haiku-20241022",
+        "5": "claude-3-opus-20240229",
+        "6": "gpt-4o-2024-08-06"
+    },
+    "gpt-4o-2024-08-06": {
+        "1": "chatgpt-4o-latest-20241120",
+        "2": "gpt-4o-2024-05-13",
+        "3": "claude-3-5-sonnet-20241022",
+        "4": "claude-3-5-haiku-20241022",
+        "5": "claude-3-opus-20240229",
+        "6": "gpt-4o-2024-08-06"
+    }
+}

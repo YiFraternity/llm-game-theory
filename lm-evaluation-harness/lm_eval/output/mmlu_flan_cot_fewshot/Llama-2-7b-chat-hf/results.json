@@ -1,0 +1,638 @@
+{
+  "results": {
+    "mmlu_flan_cot_fewshot_high_school_world_history": {
+      "exact_match,get-answer": 0.5,
+      "exact_match_stderr,get-answer": 0.5,
+      "alias": "mmlu_flan_cot_fewshot_high_school_world_history"
+    },
+    "mmlu_flan_cot_fewshot_high_school_statistics": {
+      "exact_match,get-answer": 0.0,
+      "exact_match_stderr,get-answer": 0.0,
+      "alias": "mmlu_flan_cot_fewshot_high_school_statistics"
+    },
+    "mmlu_flan_cot_fewshot_high_school_psychology": {
+      "exact_match,get-answer": 0.0,
+      "exact_match_stderr,get-answer": 0.0,
+      "alias": "mmlu_flan_cot_fewshot_high_school_psychology"
+    },
+    "mmlu_flan_cot_fewshot_high_school_physics": {
+      "exact_match,get-answer": 0.0,
+      "exact_match_stderr,get-answer": 0.0,
+      "alias": "mmlu_flan_cot_fewshot_high_school_physics"
+    },
+    "mmlu_flan_cot_fewshot_high_school_microeconomics": {
+      "exact_match,get-answer": 1.0,
+      "exact_match_stderr,get-answer": 0.0,
+      "alias": "mmlu_flan_cot_fewshot_high_school_microeconomics"
+    },
+    "mmlu_flan_cot_fewshot_high_school_mathematics": {
+      "exact_match,get-answer": 0.0,
+      "exact_match_stderr,get-answer": 0.0,
+      "alias": "mmlu_flan_cot_fewshot_high_school_mathematics"
+    },
+    "mmlu_flan_cot_fewshot_high_school_geography": {
+      "exact_match,get-answer": 1.0,
+      "exact_match_stderr,get-answer": 0.0,
+      "alias": "mmlu_flan_cot_fewshot_high_school_geography"
+    },
+    "mmlu_flan_cot_fewshot_high_school_computer_science": {
+      "exact_match,get-answer": 1.0,
+      "exact_match_stderr,get-answer": 0.0,
+      "alias": "mmlu_flan_cot_fewshot_high_school_computer_science"
+    },
+    "mmlu_flan_cot_fewshot_high_school_chemistry": {
+      "exact_match,get-answer": 0.0,
+      "exact_match_stderr,get-answer": 0.0,
+      "alias": "mmlu_flan_cot_fewshot_high_school_chemistry"
+    },
+    "mmlu_flan_cot_fewshot_high_school_biology": {
+      "exact_match,get-answer": 0.5,
+      "exact_match_stderr,get-answer": 0.5,
+      "alias": "mmlu_flan_cot_fewshot_high_school_biology"
+    }
+  },
+  "group_subtasks": {
+    "mmlu_flan_cot_fewshot_high_school_biology": [],
+    "mmlu_flan_cot_fewshot_high_school_chemistry": [],
+    "mmlu_flan_cot_fewshot_high_school_computer_science": [],
+    "mmlu_flan_cot_fewshot_high_school_geography": [],
+    "mmlu_flan_cot_fewshot_high_school_mathematics": [],
+    "mmlu_flan_cot_fewshot_high_school_microeconomics": [],
+    "mmlu_flan_cot_fewshot_high_school_physics": [],
+    "mmlu_flan_cot_fewshot_high_school_psychology": [],
+    "mmlu_flan_cot_fewshot_high_school_statistics": [],
+    "mmlu_flan_cot_fewshot_high_school_world_history": []
+  },
+  "configs": {
+    "mmlu_flan_cot_fewshot_high_school_biology": {
+      "task": "mmlu_flan_cot_fewshot_high_school_biology",
+      "group": "mmlu_flan_cot_fewshot_stem",
+      "dataset_path": "hails/mmlu_no_train",
+      "dataset_name": "high_school_biology",
+      "validation_split": "validation",
+      "fewshot_split": "dev",
+      "doc_to_text": "Q: {{question.strip()}}\n(A) {{choices[0]}} (B) {{choices[1]}} (C) {{choices[2]}} (D) {{choices[3]}}\nA: Let's think step by step.",
+      "doc_to_target": "{{['(A)', '(B)', '(C)', '(D)'][answer]}}",
+      "description": "The following are multiple choice questions (with answers) about high school biology.\n\nQ: In animal cells, which of the following represents the most likely pathway that a secretory protein takes as it is synthesized in a cell?\n(A) Plasma membrane–Golgi apparatus–ribosome–secretory vesicle–rough ER (B) Ribosome–Golgi apparatus–rough ER–secretory vesicle–plasma membrane (C) Plasma membrane–Golgi apparatus–ribosome–secretory vesicle–rough ER (D) Ribosome–rough ER–Golgi apparatus–secretory vesicle–plasma membrane\nA: Let's think step by step. Protein synthesis starts at the ribosome, so we can eliminate (A) and (C). The ribosome is often in the endoplasmic reticulum and moves from there to the Golgi apparatus, where it is modified and packaged into a vesicle. The vesicle then floats to the plasma membrane and is secreted. The answer is (D).\n\nQ: A mutation in a bacterial enzyme changed a previously polar amino acid into a nonpolar amino acid. This amino acid was located at a site distant from the enzyme’s active site. How might this mutation alter the enzyme’s substrate specificity?\n(A) By changing the enzyme’s pH optimum (B) By changing the enzyme’s location in the cell (C) By changing the shape of the protein (D) An amino acid change away from the active site cannot alter the enzyme’s substrate specificity.\nA: Let's think step by step. A change in an amino acid leads to a change in the primary structure of the protein. A change in the primary structure may lead to a change in the secondary and the tertiary structure of the protein. A change in the tertiary structure means a change in the shape of the protein, so (C) has to be correct. Since the change does not affect the active site of the enzyme, we do not expect the activity of the enzyme to be affected. The answer is (C).\n\nQ: Which of the following is not a way to form recombinant DNA?\n(A) Translation (B) Conjugation (C) Specialized transduction (D) Transformation\nA: Let's think step by step. The introduction of foreign DNA or RNA into bacteria or eukaryotic cells is a common technique in molecular biology and scientific research. There are multiple ways foreign DNA can be introduced into cells including transformation, transduction, conjugation, and transfection. In contrast, (A) is not a way to form DNA: during translation the ribosomes synthesize proteins from RNA. The answer is (A).\n\nQ: Homologous structures are often cited as evidence for the process of natural selection. All of the following are examples of homologous structures EXCEPT\n(A) the wings of a bird and the wings of a bat (B) the flippers of a whale and the arms of a man (C) the pectoral fins of a porpoise and the flippers of a seal (D) the forelegs of an insect and the forelimbs of a dog\nA: Let's think step by step. ​​Homologous structures are similar physical features in organisms that share a common ancestor ​​but different functions. Comparisons (B) and (C) are clearly homologous because they share a common ancestor and the structures serve different purposes. Bat wings and birg wings are also homologous, while they are both wings, the forelimbs serve different purposes. Insects and dogs are very far ancestors since one is vertebrate while the other is invertebrate and the forelimbs serve the same purpose, so they are not homologous. The answer is (D).\n\nQ: Which of the following is not known to be involved in the control of cell division?\n(A) Cyclins (B) Protein kinases (C) Checkpoints (D) Fibroblast cells\nA: Let's think step by step. Normal cells move through the cell cycle in a regulated way. At the checkpoint stage, they use information about their own internal state and cues from the environment around them to decide whether to proceed with cell division. Cues like these act by changing the activity of core cell cycle regulators inside the cell. The most common regulators are cyclins and cyclin-dependent kinases. Fibroblast cells do not play any role in cell division. The answer is (D).\n\n",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "exact_match",
+          "aggregation": "mean",
+          "higher_is_better": true,
+          "ignore_case": true,
+          "ignore_punctuation": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "</s>",
+          "Q:",
+          "<|im_end|>",
+          "<unk>"
+        ],
+        "do_sample": false,
+        "temperature": 0.0
+      },
+      "repeats": 1,
+      "filter_list": [
+        {
+          "name": "get-answer",
+          "filter": [
+            {
+              "function": "regex",
+              "regex_pattern": "(?<=The answer is )(.*)(?=.)"
+            },
+            {
+              "function": "take_first"
+            }
+          ]
+        }
+      ],
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 0.0
+      }
+    },
+    "mmlu_flan_cot_fewshot_high_school_chemistry": {
+      "task": "mmlu_flan_cot_fewshot_high_school_chemistry",
+      "group": "mmlu_flan_cot_fewshot_stem",
+      "dataset_path": "hails/mmlu_no_train",
+      "dataset_name": "high_school_chemistry",
+      "validation_split": "validation",
+      "fewshot_split": "dev",
+      "doc_to_text": "Q: {{question.strip()}}\n(A) {{choices[0]}} (B) {{choices[1]}} (C) {{choices[2]}} (D) {{choices[3]}}\nA: Let's think step by step.",
+      "doc_to_target": "{{['(A)', '(B)', '(C)', '(D)'][answer]}}",
+      "description": "The following are multiple choice questions (with answers) about high school chemistry.\n\nQ: Which of the following is considered an acid anhydride?\n(A) HCl (B) H2SO3 (C) SO2 (D) Al(NO3)3\nA: Let's think step by step. An acid anhydride is a compound that is derived by removing water from an acid. The chemical formula for water is H2O, which means that we need to determine which of these options, when combined with H2O, forms an acid. SO2, or Sulfur dioxide, when combined with H2O, makes H2SO4, or sulfuric acid. The answer is (C).\n\nQ: Which of the following is expected to be a polar molecule?\n(A) PCl4F (B) BF3 (C) CO2 (D) Si(CH3)4\nA: Let's think step by step. A polar molecule is one that has a slightly positive charge on one end of the molecule and a slightly negative charge on the other end. Boron trifluoride (BF3) has Boron as the center atom and three fluorine atoms attached to it; it is trigonal planar and symmetric, so it is nonpolar. Carbon Dioxide (CO2) has Carbon as the central atom with double bonds to two Oxygen atoms - this is also symmetrical and therefore nonpolar. The same is the case for tetramethyl silane (SI(CH3)4), which is a Silicon atom surrounded by four methyl groups. The structure of PCL4F is that Phosphorus is the central atom, attached to four chlorines and one fluorine atom. This is asymmetrical, and therefore has a net dipole and is expected to be a polar molecule. The answer is (A).\n\nQ: From the solubility rules, which of the following is true?\n(A) All chlorides, bromides, and iodides are soluble (B) All sulfates are soluble (C) All hydroxides are soluble (D) All ammonium-containing compounds are soluble\nA: Let's think step by step. The chlorides, bromides, and iodides of lead, silver, and mercury are not soluble in water. This rules out (A). The sulfates of lead, barium, and calcium are not soluble in water, which rules out (B). The hydroxides of any metal besides sodium, potassium, ammonium, calcium, and barium are insoluble. This rules out (C). Typically ammonium ions indicate a soluble ionic substance. The answer is (D).\n\nQ: A new compound is synthesized and found to be a monoprotic acid with a molar mass of 248 g/mol. When 0.0050 mol of this acid are dissolved in 0.500 L of water, the pH is measured as 3.89. What is the pKa of this acid?\n(A) 3.89 (B) 7.78 (C) 5.78 (D) 2.33\nA: Let's think step by step. Recall that $[A] = [H^{+}]$. Here, this is equal to $$10^{-3.89}$. Then we have $K_{a} = $\nrac{[H^{+}][A^{-}]}{[HA]} = \nrac{10^{-3.89} \\cdot 10^{-3.89}}{10^{-2}}. The resulting exponent is $-3.89 + (-3.89) - (-2) = 5.78$, therefore $K_a = 10^{-5.78}$. The $pK_a$ is the negative log of $K_a$, which is equal to $5.78$. The answer is (C).\n\nQ: A solution contains 2.00 mole of acetic acid, CH3COOH, and 1.00 mole of calcium acetate, Ca(CH3COO)2. The solution is able to resist the addition of a small amount of strong acid or strong base with only minor changes in the pH of the solution. Larger quantities of strong acid or strong base can cause a significant change in pH. How many moles of nitric acid, HNO3, may be added before the pH begins to change significantly?\n(A) 0.500 mole (B) 1.00 mole (C) 2.00 mole (D) 3.00 mole\nA: Let's think step by step. We would like to compute the buffer capacity of this solution. First we write the equation for the ionization of the weak acid, in this case of acetic acid. $CH_{3}COOH (aq) + H_{2}O \nightarrow H_{3}O^{+} + CH3COO^{-}$. The conjugate base is therefore the acetate ion. The added strong acid, Nitric acid, will react with the conjugate base. Therefore the maximum amount of acid that can be added will be equal to the amount of acetate ion, or 2 moles. The answer is (C).\n\n",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "exact_match",
+          "aggregation": "mean",
+          "higher_is_better": true,
+          "ignore_case": true,
+          "ignore_punctuation": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "</s>",
+          "Q:",
+          "<|im_end|>",
+          "<unk>"
+        ],
+        "do_sample": false,
+        "temperature": 0.0
+      },
+      "repeats": 1,
+      "filter_list": [
+        {
+          "name": "get-answer",
+          "filter": [
+            {
+              "function": "regex",
+              "regex_pattern": "(?<=The answer is )(.*)(?=.)"
+            },
+            {
+              "function": "take_first"
+            }
+          ]
+        }
+      ],
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 0.0
+      }
+    },
+    "mmlu_flan_cot_fewshot_high_school_computer_science": {
+      "task": "mmlu_flan_cot_fewshot_high_school_computer_science",
+      "group": "mmlu_flan_cot_fewshot_stem",
+      "dataset_path": "hails/mmlu_no_train",
+      "dataset_name": "high_school_computer_science",
+      "validation_split": "validation",
+      "fewshot_split": "dev",
+      "doc_to_text": "Q: {{question.strip()}}\n(A) {{choices[0]}} (B) {{choices[1]}} (C) {{choices[2]}} (D) {{choices[3]}}\nA: Let's think step by step.",
+      "doc_to_target": "{{['(A)', '(B)', '(C)', '(D)'][answer]}}",
+      "description": "The following are multiple choice questions (with answers) about high school computer science.\n\nQ: Which of the following is an example of the use of a device on the Internet of Things (IoT) ?\n(A) A car alerts a driver that it is about to hit an object. (B) A hiker uses a G P S watch to keep track of her position. (C) A refrigerator orders milk from an online delivery service when the milk in the refrigerator is almost gone. (D) A runner uses a watch with optical sensors to monitor his heart rate.\nA: Let's think step by step. The term Internet of Things (IoT) refers to common devices which are connected to the internet, enabling new functionality. Choice A is incorrect because it does not describe an internet connected device. In choice B, the watch is only described as having GPS functionality but no internet connectivity. Choice C describes a common device (a refrigerator) which has internet connectivity enabling new functionality (online ordering). Choice D does not mention internet connectivity for the watch, only optical sensors. The answer is (C).\n\nQ: Many Web browsers allow users to open anonymous windows. During a browsing session in an anonymous window, the browser does not record a browsing history or a list of downloaded files. When the anonymous window is exited, cookies created during the session are deleted. Which of the following statements about browsing sessions in an anonymous window is true?\n(A) The activities of a user browsing in an anonymous window will not be visible to people who monitor the user's network, such as the system administrator. (B) Items placed in a Web store's shopping cart for future purchase during the anonymous browsing session will not be saved on the user's computer. (C) A user will not be able to log in to e-mail or social media accounts during the anonymous browsing session. (D) A user browsing in an anonymous window will be protected from viruses launched from any web sites visited or files downloaded.\nA: Let's think step by step. Choice A is incorrect as it only describes network traffic, which an anonymous browser does not change. Choice B is correct as it correctly describes how an anonymous browser will prevent saving data on the user’s computer after the session is ended. Choice C is incorrect because an anonymous browser will not prevent logging in to email or social media accounts. Choice D is incorrect because an anonymous browser in itself performs no virus protection. The answer is (B).\n\nQ: In the program below, the initial value of X is 5 and the initial value of Y is 10.\nIF (X < 0){\n DISPLAY (\"Foxtrot\")\n} ELSE {\n IF (X > Y){\n  DISPLAY (\"Hotel\")\n } ELSE {\n  IF (Y > 0){\n   DISPLAY (\"November\")\n  } ELSE {\n   DISPLAY (\"Yankee\")\n  }\n }\n}\nWhat is displayed as a result of running the program?\n(A) Foxtrot (B) Hotel (C) November (D) Yankee\nA: Let's think step by step. Because X has the value 5, the first conditional IF (X < 0) is false, so we move to the first ELSE clause. Because X is 5 and Y is 10, the second conditional IF (X > Y) is false, so we move to the following ELSE clause. Since Y is 10, the conditional IF (Y > 0) is true, so the command DISPLAY (\"November\") is executed. The answer is (C).\n\nQ: What is the output of \"abc\"[::-1] in Python 3?\n(A) Error (B) abc (C) cba (D) c\nA: Let's think step by step. We know that the slicing operator [::-1] takes all of the elements in the string in reverse order, so we reverse the order of the string \"abc\", resulting in \"cba\". The answer is (C).\n\nQ: A list of numbers has n elements, indexed from 1 to n. The following algorithm is intended to display the number of elements in the list that have a value greater than 100. The algorithm uses the variables count and position. Steps 3 and 4 are missing.\n Step 1: Set count to 0 and position to 1.\n Step 2: If the value of the element at index position is greater than 100, increase the value of count by 1.\n Step 3: (missing step)\n Step 4: (missing step)\n Step 5: Display the value of count.\nWhich of the following could be used to replace steps 3 and 4 so that the algorithm works as intended?\n(A) Step 3: Increase the value of position by 1.\n  Step 4: Repeat steps 2 and 3 until the value of count is greater than 100.\n(B) Step 3: Increase the value of position by 1.\n  Step 4: Repeat steps 2 and 3 until the value of position is greater than n.\n(C) Step 3: Repeat step 2 until the value of count is greater than 100.\n  Step 4: Increase the value of position by 1.\n(D) Step 3: Repeat step 2 until the value of position is greater than n.\n  Step 4: Increase the value of count by 1.\nA: Let's think step by step. Choice A is incorrect, because its Step 4 has an incorrect termination condition, stopping when count is greater than 100. We need to stop after inspecting all elements in the list. Choice B is correct because it correctly increments both count and position, and correctly repeats these steps and terminates when all elements in the list have been inspected. Choice C is incorrect because it incorrectly increments the variable count until its value is greater than 100, regardless of the elements in the list. Choice D is incorrect because its step 3 does not increment the value of position, so it will repeat forever. The answer is (B).\n\n",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "exact_match",
+          "aggregation": "mean",
+          "higher_is_better": true,
+          "ignore_case": true,
+          "ignore_punctuation": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "</s>",
+          "Q:",
+          "<|im_end|>",
+          "<unk>"
+        ],
+        "do_sample": false,
+        "temperature": 0.0
+      },
+      "repeats": 1,
+      "filter_list": [
+        {
+          "name": "get-answer",
+          "filter": [
+            {
+              "function": "regex",
+              "regex_pattern": "(?<=The answer is )(.*)(?=.)"
+            },
+            {
+              "function": "take_first"
+            }
+          ]
+        }
+      ],
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 0.0
+      }
+    },
+    "mmlu_flan_cot_fewshot_high_school_geography": {
+      "task": "mmlu_flan_cot_fewshot_high_school_geography",
+      "group": "mmlu_flan_cot_fewshot_social_sciences",
+      "dataset_path": "hails/mmlu_no_train",
+      "dataset_name": "high_school_geography",
+      "validation_split": "validation",
+      "fewshot_split": "dev",
+      "doc_to_text": "Q: {{question.strip()}}\n(A) {{choices[0]}} (B) {{choices[1]}} (C) {{choices[2]}} (D) {{choices[3]}}\nA: Let's think step by step.",
+      "doc_to_target": "{{['(A)', '(B)', '(C)', '(D)'][answer]}}",
+      "description": "The following are multiple choice questions (with answers) about high school geography.\n\nQ: Which one of the following items is an example of nonmaterial culture?\n(A) Dove soap (B) Dove candy bar (C) Dove symbol (D) A dove (bird).\nA: Let's think step by step. We refer to Wikipedia articles on geography for help. Nonmaterial culture consists of cultural ideas, beliefs or symbols that are not physical objects. The answer is (C).\n\nQ: During the third stage of the demographic transition model, which of the following is true?\n(A) Birth rates increase and population growth rate is less rapid. (B) Birth rates decline and population growth rate is less rapid. (C) Birth rates increase and population growth rate increases. (D) Birth rates decrease and population growth rate increases.\nA: Let's think step by step. We refer to Wikipedia articles on geography for help. The demographic transition model models the five different stages of population growth as a country goes through economic development, where the third stage refers to a period of declining birth rates and lower population growth. The answer is (B).\n\nQ: The practice of hiring a foreign third-party service provider to run an operation is called\n(A) outsourcing. (B) offshoring. (C) maquiladoras. (D) locational interdependence.\nA: Let's think step by step. We refer to Wikipedia articles on geography for help. \"Offshoring\" literally means to move or base some of the activities or processes of a company to a foreign country. The answer is (B).\n\nQ: Which of the following statements is NOT accurate regarding the services provided by local governments in the United States?\n(A) Duplication of efforts occurs often. (B) Social problems of the central city spill over into the surrounding residential suburbs. (C) Inefficiency in providing services occurs often. (D) One neighborhood's efforts to reduce pollution are always supported by neighboring communities.\nA: Let's think step by step. We refer to Wikipedia articles on geography for help. There may be economic, social or political reasons for two neighboring communities and their local governments not agreeing to pollution reduction efforts initiated by one of them. The answer is (D).\n\nQ: The rate of natural increase of a population is found by subtracting the\n(A) crude death rate from the crude birth date. (B) crude birth rate from the crude death rate. (C) doubling time from the crude birth rate. (D) fertility rate from the crude death rate.\nA: Let's think step by step. We refer to Wikipedia articles on geography for help. The difference between number of births and deaths gives the population increase at any given time. The answer is (A).\n\n",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "exact_match",
+          "aggregation": "mean",
+          "higher_is_better": true,
+          "ignore_case": true,
+          "ignore_punctuation": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "</s>",
+          "Q:",
+          "<|im_end|>",
+          "<unk>"
+        ],
+        "do_sample": false,
+        "temperature": 0.0
+      },
+      "repeats": 1,
+      "filter_list": [
+        {
+          "name": "get-answer",
+          "filter": [
+            {
+              "function": "regex",
+              "regex_pattern": "(?<=The answer is )(.*)(?=.)"
+            },
+            {
+              "function": "take_first"
+            }
+          ]
+        }
+      ],
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 0.0
+      }
+    },
+    "mmlu_flan_cot_fewshot_high_school_mathematics": {
+      "task": "mmlu_flan_cot_fewshot_high_school_mathematics",
+      "group": "mmlu_flan_cot_fewshot_stem",
+      "dataset_path": "hails/mmlu_no_train",
+      "dataset_name": "high_school_mathematics",
+      "validation_split": "validation",
+      "fewshot_split": "dev",
+      "doc_to_text": "Q: {{question.strip()}}\n(A) {{choices[0]}} (B) {{choices[1]}} (C) {{choices[2]}} (D) {{choices[3]}}\nA: Let's think step by step.",
+      "doc_to_target": "{{['(A)', '(B)', '(C)', '(D)'][answer]}}",
+      "description": "The following are multiple choice questions (with answers) about high school mathematics.\n\nQ: Simplify and write the result with a rational denominator: $$\\sqrt{\\sqrt[3]{\\sqrt{\\frac{1}{729}}}}$$\n(A) \\frac{3\\sqrt{3}}{3} (B) \\frac{1}{3} (C) \\sqrt{3} (D) \\frac{\\sqrt{3}}{3}\nA: Let's think step by step. Factoring $729=3^6$ and combining the roots $\\frac{1}{2}\\frac{1}{3}\\frac{1}{2}=\\frac{1}{12}$, we get that $\\sqrt{\\sqrt[3]{\\sqrt{\\frac{1}{729}}}}=\\left(\\frac{1}{3^6}\\right)^{\\frac{1}{12}}=\\frac{1}{3^{\\frac{1}{2}}}=\\frac{3}{\\sqrt{3}}$ The answer is (D).\n\nQ: Five thousand dollars compounded annually at an $x\\%$ interest rate takes six years to double. At the same interest rate, how many years will it take $\\$300$ to grow to $\\$9600$?\n(A) 12 (B) 1 (C) 30 (D) 5\nA: Let's think step by step. To go from $\\$300$ to $\\$9600$, the value must go up by a factor of $9600/300=32=2^5$. Since at this interest rate it takes six years for it to double, it will take $5*6=30$ years to grow to $\\$9600$. The answer is (C).\n\nQ: Ten students take a biology test and receive the following scores: 45, 55, 50, 70, 65, 80, 40, 90, 70, 85. What is the mean of the students’ test scores?\n(A) 55 (B) 60 (C) 62 (D) 65\nA: Let's think step by step. There are 10 students and the sum of their scores is $45 + 55 + 50 + 70 + 65 + 80 + 40 + 90 + 70 + 85 = 650$, the mean is $650/10=65$. The answer is (D).\n\nQ: The variable $x$ varies directly as the square of $y$, and $y$ varies directly as the cube of $z$. If $x$ equals $-16$ when $z$ equals 2, what is the value of $x$ when $z$ equals $\\frac{1}{2}$?\n(A) -1 (B) 16 (C) -\\frac{1}{256} (D) \\frac{1}{16}\nA: Let's think step by step. We know that $x \\propto y^2$ and $y \\propto z^3$, so $x = k z^6$ for some constant $k$. Plugging in for $x=-16$ and $z=2$, the constant value is $k=\\frac{x}{z^6}=\\frac{-16}{64}=-\\frac{1}{4}$. So, when $z=\\frac{1}{2}$, the value of $x$ is $x=kz^6=-\\frac{1}{4}\\frac{1}{2^6}=-\\frac{1}{256}$. The answer is (C).\n\nQ: Joe was in charge of lights for a dance. The red light blinks every two seconds, the yellow light every three seconds, and the blue light every five seconds. If we include the very beginning and very end of the dance, how many times during a seven minute dance will all the lights come on at the same time? (Assume that all three lights blink simultaneously at the very beginning of the dance.)\n(A) 3 (B) 15 (C) 6 (D) 5\nA: Let's think step by step. The least common multiple of 2, 3 and 5 is 30, so during a 7 minute dance, all the three lights will come on at the same time $2*7+1=15$ times. The answer is (B).\n\n",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "exact_match",
+          "aggregation": "mean",
+          "higher_is_better": true,
+          "ignore_case": true,
+          "ignore_punctuation": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "</s>",
+          "Q:",
+          "<|im_end|>",
+          "<unk>"
+        ],
+        "do_sample": false,
+        "temperature": 0.0
+      },
+      "repeats": 1,
+      "filter_list": [
+        {
+          "name": "get-answer",
+          "filter": [
+            {
+              "function": "regex",
+              "regex_pattern": "(?<=The answer is )(.*)(?=.)"
+            },
+            {
+              "function": "take_first"
+            }
+          ]
+        }
+      ],
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 0.0
+      }
+    },
+    "mmlu_flan_cot_fewshot_high_school_microeconomics": {
+      "task": "mmlu_flan_cot_fewshot_high_school_microeconomics",
+      "group": "mmlu_flan_cot_fewshot_social_sciences",
+      "dataset_path": "hails/mmlu_no_train",
+      "dataset_name": "high_school_microeconomics",
+      "validation_split": "validation",
+      "fewshot_split": "dev",
+      "doc_to_text": "Q: {{question.strip()}}\n(A) {{choices[0]}} (B) {{choices[1]}} (C) {{choices[2]}} (D) {{choices[3]}}\nA: Let's think step by step.",
+      "doc_to_target": "{{['(A)', '(B)', '(C)', '(D)'][answer]}}",
+      "description": "The following are multiple choice questions (with answers) about high school microeconomics.\n\nQ: Which of the following is necessarily a characteristic of oligopoly?\n(A) Free entry into and exit from the market (B) A few large producers (C) One producer of a good with no close substitutes (D) A homogenous product\nA: Let's think step by step. We refer to Wikipedia articles on microeconomics for help. An oligopoly is when a market is dominated by just one or a few number of sellers or producers. To get oligopoly, the market should have high barriers to new entry, and the product has differentiation. The answer is (B).\n\nQ: If the government subsidizes producers in a perfectly competitive market, then\n(A) the demand for the product will increase (B) the demand for the product will decrease (C) the consumer surplus will increase (D) the consumer surplus will decrease\nA: Let's think step by step. We refer to Wikipedia articles on microeconomics for help. (A) and (B) are wrong because the demand curve does not change at all. If the government subsidizes producers, the supply will increase, and thus the consumer surplus also increases. The answer is (C).\n\nQ: Which of the following is true of a price floor?\n(A) The price floor shifts the demand curve to the left. (B) An effective floor creates a shortage of the good. (C) The price floor shifts the supply curve of the good to the right. (D) To be an effective floor, it must be set above the equilibrium price.\nA: Let's think step by step. We refer to Wikipedia articles on microeconomics for help. Price floor does not shift the demand or shift curve. An effective price floor should be set above the equilibrium price, otherwise the market bears and the floor does not have effective effect. The answer is (D).\n\nQ: The concentration ratio for a monopoly is\n(A) 0 (B) 5 (C) 10 (D) 100\nA: Let's think step by step. We refer to Wikipedia articles on microeconomics for help. The concentration ratio is calculated as the sum of market share of a specific number of largest companies. Monopoly means one company or entity controls the entire market, therefore, the concentration ratio is 100 percent. The answer is (D).\n\nQ: In a competitive labor market for housepainters, which of the following would increase the demand for housepainters?\n(A) An effective minimum wage imposed on this labor market. (B) An increase in the price of gallons of paint. (C) An increase in the construction of new houses. (D) An increase in the price of mechanical painters so long as the output effect exceeds the substitution effect.\nA: Let's think step by step. We refer to Wikipedia articles on microeconomics for help. An increase in the construction of new houses means an increase demand of in-house painting, thus increases the demand for housepainters. The answer is (C).\n\n",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "exact_match",
+          "aggregation": "mean",
+          "higher_is_better": true,
+          "ignore_case": true,
+          "ignore_punctuation": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "</s>",
+          "Q:",
+          "<|im_end|>",
+          "<unk>"
+        ],
+        "do_sample": false,
+        "temperature": 0.0
+      },
+      "repeats": 1,
+      "filter_list": [
+        {
+          "name": "get-answer",
+          "filter": [
+            {
+              "function": "regex",
+              "regex_pattern": "(?<=The answer is )(.*)(?=.)"
+            },
+            {
+              "function": "take_first"
+            }
+          ]
+        }
+      ],
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 0.0
+      }
+    },
+    "mmlu_flan_cot_fewshot_high_school_physics": {
+      "task": "mmlu_flan_cot_fewshot_high_school_physics",
+      "group": "mmlu_flan_cot_fewshot_stem",
+      "dataset_path": "hails/mmlu_no_train",
+      "dataset_name": "high_school_physics",
+      "validation_split": "validation",
+      "fewshot_split": "dev",
+      "doc_to_text": "Q: {{question.strip()}}\n(A) {{choices[0]}} (B) {{choices[1]}} (C) {{choices[2]}} (D) {{choices[3]}}\nA: Let's think step by step.",
+      "doc_to_target": "{{['(A)', '(B)', '(C)', '(D)'][answer]}}",
+      "description": "The following are multiple choice questions (with answers) about high school physics.\n\nQ: A microwave oven is connected to an outlet, 120 V, and draws a current of 2 amps. At what rate is energy being used by the microwave oven?\n(A) 10 W (B) 30 W (C) 60 W (D) 240 W\nA: Let's think step by step. Rate of energy usage is known as power; in an dissipative electrical circuit, power is given by voltage times current. So in our case, the power is 120 V times 2 amps, or 240 W. The answer is (D).\n\nQ: A point charge, Q = +1 mC, is fixed at the origin. How much work is required to move a charge, Q = +8 µC, from the point (0, 4 meters) to the point (3 meters, 0)?\n(A) 3.5 J (B) 6.0 J (C) 22.5 J (D) 40 J\nA: Let's think step by step. To calculate the work required to move a charge from one location to another in a fixed electric field, it is enough to calculate the potential difference between the two locations. Here, the potential only depends on the distance between the charges; it’s $k q_1 q_2 / r$, where $k$ is Coulomb’s constant. Plugging in values $q_1 = $ 1 mC, $q_2 = 8 \\mu$ C, gives the answer as 5.992 J, which rounds to 6 J. The answer is (B).\n\nQ: Which of the following conditions will ensure that angular momentum is conserved? I. Conservation of linear momentum II. Zero net external force III. Zero net external torque\n(A) I and II only (B) I and III only (C) II and III only (D) III only\nA: Let's think step by step. Torque is defined as the change in angular momentum; if there is zero external torque, angular momentum is conserved. The answer is (D).\n\nQ: A photocell of work function ϕ = 2eV is connected to a resistor in series. Light of frequency f = 1 × 10^15 Hz hits a metal plate of the photocell. If the power of the light is P = 100 W, what is the current through the resistor?\n(A) 2:00 AM (B) 6:00 AM (C) 12:00 AM (D) 24 A\nA: Let's think step by step. The only answer above which has units of current is D, 24 A. The answer is (D).\n\nQ: A pipe full of air is closed at one end. A standing wave is produced in the pipe, causing the pipe to sound a note. Which of the following is a correct statement about the wave’s properties at the closed end of the pipe?\n(A) The pressure is at a node, but the particle displacement is at an antinode. (B) The pressure is at an antinode, but the particle displacement is at a node. (C) The pressure and the particle displacement are both at nodes. (D) The pressure and the particle displacement are both at antinodes.\nA: Let's think step by step. At the closed end of the pipe, the particles cannot have any net displacement because the pipe closure stops them. So the particle displacement is at a node. This closure also causes the pressure to be maximal, i.e. an antinode. The answer is (B).\n\n",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "exact_match",
+          "aggregation": "mean",
+          "higher_is_better": true,
+          "ignore_case": true,
+          "ignore_punctuation": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "</s>",
+          "Q:",
+          "<|im_end|>",
+          "<unk>"
+        ],
+        "do_sample": false,
+        "temperature": 0.0
+      },
+      "repeats": 1,
+      "filter_list": [
+        {
+          "name": "get-answer",
+          "filter": [
+            {
+              "function": "regex",
+              "regex_pattern": "(?<=The answer is )(.*)(?=.)"
+            },
+            {
+              "function": "take_first"
+            }
+          ]
+        }
+      ],
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 0.0
+      }
+    },
+    "mmlu_flan_cot_fewshot_high_school_psychology": {
+      "task": "mmlu_flan_cot_fewshot_high_school_psychology",
+      "group": "mmlu_flan_cot_fewshot_social_sciences",
+      "dataset_path": "hails/mmlu_no_train",
+      "dataset_name": "high_school_psychology",
+      "validation_split": "validation",
+      "fewshot_split": "dev",
+      "doc_to_text": "Q: {{question.strip()}}\n(A) {{choices[0]}} (B) {{choices[1]}} (C) {{choices[2]}} (D) {{choices[3]}}\nA: Let's think step by step.",
+      "doc_to_target": "{{['(A)', '(B)', '(C)', '(D)'][answer]}}",
+      "description": "The following are multiple choice questions (with answers) about high school psychology.\n\nQ: Pascale is interested in the processing strategies children use to learn new information. Pascale would best be classified as what type of psychologist?\n(A) sociocultural (B) clinical (C) cognitive (D) behaviorist\nA: Let's think step by step. We refer to Wikipedia articles on psychology for help. Sociocultural psychologist focuses on the effect of societal factors on people. Clinical psychologist focuses on people with mental issues. Cognitive psychologist focuses on how people think and learn, including the processing strategies. Behaviorist focuses more on the environment and experience effect on people. The answer is (C).\n\nQ: According to Caplan's model of consultee-centered case consultation, the consultant is primarily interested in\n(A) identifying the causes and solutions of the client's presenting problems (B) identifying and eliminating the causes of the consultee's difficulties in handling a problem (C) establishing a hierarchy of authority to enable effective decision making (D) presenting a single, well-defined and unambiguous course of action for the consultant to overcome skills deficits\nA: Let's think step by step. We refer to Wikipedia articles on psychology for help. Caplan defines two type of consultation. Client-centered case consultation aims to handle client's problems, while consultee-centered case consultation aims to identify the reason of client's difficulty to solve problems. The answer is (B).\n\nQ: According to the Individuals with Disabilities Education Improvement Act, which of the following must an educational agency do before it changes the educational placement of a student with a disability?\n(A) Give the child a trial period in the new environment (B) Notify the parents in writing (C) Obtain school board approval (D) Obtain parental consent\nA: Let's think step by step. We refer to Wikipedia articles on psychology for help. When the decision to change the educational placement of a student with a disability is made, the educational agency must notify the parents in writing on that date. The answer is (B).\n\nQ: While swimming in the ocean, Ivan is frightened by a dark shadow in the water even before he has the chance to identify what the shadow is. The synaptic connections taking place during this incident of fright are best described by which of the following?\n(A) Messages are sent from the thalamus directly to the amygdala. (B) Messages are sent from the thalamus to the \"what\" and \"where\" pathways. (C) Messages are sent from the parasympathetic nervous system to the cerebral cortex. (D) Messages are sent from the frontal lobes to the pituitary gland.\nA: Let's think step by step. We refer to Wikipedia articles on psychology for help. Our neural system has a mechanism that can respond immediate emotional signal before going to the thought center. In the Ivan's case, messages travel directly from thalamus to amygdala. The answer is (A).\n\nQ: Ani believes that her attitudes and behavior play a central role in what happens to her. Such a belief is likely to be associated with\n(A) a strong superego. (B) low self-esteem. (C) low self-efficacy. (D) an internal locus of control.\nA: Let's think step by step. We refer to Wikipedia articles on psychology for help. People with an external locus of control believes fate and luck play an important role in their lives, while people with an internal locus of control believes they control their lives. The answer is (D).\n\n",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "exact_match",
+          "aggregation": "mean",
+          "higher_is_better": true,
+          "ignore_case": true,
+          "ignore_punctuation": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "</s>",
+          "Q:",
+          "<|im_end|>",
+          "<unk>"
+        ],
+        "do_sample": false,
+        "temperature": 0.0
+      },
+      "repeats": 1,
+      "filter_list": [
+        {
+          "name": "get-answer",
+          "filter": [
+            {
+              "function": "regex",
+              "regex_pattern": "(?<=The answer is )(.*)(?=.)"
+            },
+            {
+              "function": "take_first"
+            }
+          ]
+        }
+      ],
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 0.0
+      }
+    },
+    "mmlu_flan_cot_fewshot_high_school_statistics": {
+      "task": "mmlu_flan_cot_fewshot_high_school_statistics",
+      "group": "mmlu_flan_cot_fewshot_stem",
+      "dataset_path": "hails/mmlu_no_train",
+      "dataset_name": "high_school_statistics",
+      "validation_split": "validation",
+      "fewshot_split": "dev",
+      "doc_to_text": "Q: {{question.strip()}}\n(A) {{choices[0]}} (B) {{choices[1]}} (C) {{choices[2]}} (D) {{choices[3]}}\nA: Let's think step by step.",
+      "doc_to_target": "{{['(A)', '(B)', '(C)', '(D)'][answer]}}",
+      "description": "The following are multiple choice questions (with answers) about high school statistics.\n\nQ: A new smartwatch is manufactured in one part of a factory, then secured for shipping in another, independent part of the factory. The weight of the smartwatch has a mean of 62 grams and a standard deviation of 1.0 grams. The weight of the packaging (box, user's guide, bubble wrap, etc.) has a mean of 456 grams and a standard deviation of 6 grams. Together, the distribution of the weight of the smartwatch and its packaging would have the following mean and standard deviation:\n(A) Mean 518 grams; standard deviation 7.0 grams (B) Mean 518 grams; standard deviation 3.5 grams (C) Mean 518 grams; standard deviation 6.1 grams (D) Mean 394 grams; standard deviation 6.1 grams\nA: Let's think step by step. Since the weight of the watch and the weight of the packaging are independent random variables, the mean and variance of their sum is equal to the sum of their individual means and variances. So the mean is 62 + 456 = 518 grams, and the variances is 1.0^2 + 6.0^2 = 37, leading to a standard deviation of 6.1 grams. The answer is (C).\n\nQ: After a frost warning was issued, the owner of a large orange grove asked his workers to spray all his trees with water. The water was supposed to freeze and form a protective covering of ice around the orange blossom. Nevertheless, the owner suspected that some trees suffered considerable damage due to the frost. To estimate the proportion of trees that suffered more than 50 percent damage due to the frost, he took a random sample of 100 trees from his grove. What is the response variable in this experiment?\n(A) The proportion of trees that suffered more than 50 percent damage due to frost. (B) The number of trees affected by the frost. (C) The number of trees sampled from the grove. (D) For each sampled tree, whether it suffered more than 50 percent damage or at most 50 percent damage.\nA: Let's think step by step. In this experiment, the response variable is what is measured. For each tree, what is measured is whether or not it suffered more than 50 percent damage due to the frost. The answer is (D).\n\nQ: Suppose X and Y are random variables with E(X) = 37, var(X) = 5, E(Y) = 62, and var(Y) = 12. What are the expected value and variance of the random variable X + Y?\n(A) E(X + Y) = 99, var(X + Y) = 8.5 (B) E(X + Y) = 99, var(X + Y) = 13 (C) E(X + Y) = 99, var(X + Y) = 17 (D) There is insufficient information to answer this question.\nA: Let's think step by step. While means of sums of random variables add (regardless of whether the variables are independent) in order to determine the variance of a sum of random variables, we need to know not just their individual variances but the covariance of the two variables, which is not given in this problem. The answer is (D).\n\nQ: Which of the following sets has the smallest standard deviation? Which has the largest?\nI: {1,2,3}\nII: {-10,10}\nIII: {100}\n(A) I, II (B) II, III (C) III, I (D) III, II\nA: Let's think step by step. The variance of distribution I is the expected squared deviation from its mean (which is 2), so the variance is 2/3 . The variance of distribution II is 10^2 (because both elements are 10 away from the mean of zero). The variance of distribution III is 0, since it has a single entry. So distribution III has the smallest standard deviation and distribution II has the largest. The answer is (D).\n\nQ: Which of the following is a correct statement about correlation?\n(A) If the slope of the regression line is exactly 1, then the correlation is exactly 1. (B) If the correlation is 0, then the slope of the regression line is undefined. (C) Switching which variable is called x and which is called y changes the sign of the correlation. (D) The correlation r is equal to the slope of the regression line when z-scores for the y-variable are plotted against z-scores for the x-variable.\nA: Let's think step by step. Statement A is false because the slope of the regression line being exactly 1 can occur even when the two variables are not perfectly correlated. Statement B is false because uncorrelated variables regression lines can have slope zero. Statement C is false because correlation is symmetric in the two random variables. The answer is (D).\n\n",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "exact_match",
+          "aggregation": "mean",
+          "higher_is_better": true,
+          "ignore_case": true,
+          "ignore_punctuation": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "</s>",
+          "Q:",
+          "<|im_end|>",
+          "<unk>"
+        ],
+        "do_sample": false,
+        "temperature": 0.0
+      },
+      "repeats": 1,
+      "filter_list": [
+        {
+          "name": "get-answer",
+          "filter": [
+            {
+              "function": "regex",
+              "regex_pattern": "(?<=The answer is )(.*)(?=.)"
+            },
+            {
+              "function": "take_first"
+            }
+          ]
+        }
+      ],
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 0.0
+      }
+    },
+    "mmlu_flan_cot_fewshot_high_school_world_history": {
+      "task": "mmlu_flan_cot_fewshot_high_school_world_history",
+      "group": "mmlu_flan_cot_fewshot_humanities",
+      "dataset_path": "hails/mmlu_no_train",
+      "dataset_name": "high_school_world_history",
+      "validation_split": "validation",
+      "fewshot_split": "dev",
+      "doc_to_text": "Q: {{question.strip()}}\n(A) {{choices[0]}} (B) {{choices[1]}} (C) {{choices[2]}} (D) {{choices[3]}}\nA: Let's think step by step.",
+      "doc_to_target": "{{['(A)', '(B)', '(C)', '(D)'][answer]}}",
+      "description": "The following are multiple choice questions (with answers) about high school world history.\n\nQ: This question refers to the following information.\n\"At least one of the [world's] societies would have to somehow enormously increase its productivity [in order to achieve global hegemony]. That quantum jump would have to be made before the various scientific, technological, agricultural, and industrial revolutions on which our post-quantum-leap world rests. It could only be accomplished by exploiting the ecosystems, mineral resources, and human assets of whole continents outside the lands of the society making the jump. Western Europe did just that by means of its brutality and guns and, more important, by geographical and ecological luck.\"\nCopyright © 2015 Cambridge University Press.\nAlfred Crosby, historian, Ecological Imperialism, 2004\nThe \"quantum jump\" mentioned in the passage most directly contributed to which of the following developments in the period 1450–1750 C.E.?\n(A) A breakdown in trade routes through the collapse of the established state structure (B) An increase in the population of the world through more plentiful supplies of food (C) The spread of Chinese and Indian belief systems across the world (D) An increase in social unrest\nA: Let's think step by step. We refer to Wikipedia articles on world history for help. The \"quantum jump\" mentioned in the passage refers to the conquest of the New World and the Columbian Exchange. Choice (A) and (C) did not happen in history. Choice (C) refers to the human assets. The answer is (B).\n\nQ: This question refers to the following information.\n\"The struggle against neo-colonialism is not aimed at excluding the capital of the developed world from operating in less developed countries. It is aimed at preventing the financial power of the developed countries being used in such a way as to impoverish the less developed.\nNon-alignment, as practiced by Ghana and many other countries, is based on co-operation with all States whether they be capitalist, socialist or have a mixed economy. Such a policy, therefore, involves foreign investment from capitalist countries, but it must be invested in accordance with a national plan drawn up by the government of the non-aligned State with its own interests in mind. The issue is not what return the foreign investor receives on his investments…The question is one of power. A State in the grip of neo-colonialism is not master of its own destiny.\"\nKwame Nkrumah, Neo-Colonialism, 1965\nWhich of the following provides the best context for Nkrumah's writings?\n(A) The Industrial Revolution (B) Decolonization (C) Regional Free Trade Associations (D) Autarky\nA: Let's think step by step. We refer to Wikipedia articles on world history for help. The passage expresses a point that the successful fight against neo-colonialism were in danger and the newly independent nations like Ghana may be re-colonized via financial power of the developed countries. The answer is (B).\n\nQ: This question refers to the following information.\n\"Indeed, as both the fatwas of distinguished [scholars] who base their opinion on reason and tradition alike and the consensus of the Sunni community agree that the ancient obligation of extirpation, extermination, and expulsion of evil innovation must be the aim of our exalted aspiration, for \"Religious zeal is a victory for the Faith of God the Beneficent\"; then, in accordance with the words of the Prophet (Peace upon him!) \"Whosoever introduces evil innovation into our order must be expelled\" and \"Whosoever does aught against our order must be expelled,\" action has become necessary and exigent…\"\nLetter from Ottoman Sultan Selim I to Safavid Shah Ismail I, 1514\nThe letter from Selim I is most clearly an example of which of the following?\n(A) The maintenance of military supremacy at all costs (B) Expanding tensions between religious sects (C) Factors that brought about the collapse of the Ottoman Empire (D) Peacemaking efforts among the Islamic empires\nA: Let's think step by step. We refer to Wikipedia articles on world history for help. The passage is an example of expanding tensions between Selim and Ismail. In the passage the Selim references the fatwa and the consensus of the Sunni community to against whosoever introduces evil. The answer is (B).\n\nQ: This question refers to the following information.\n\"The real grievance of the worker is the insecurity of his existence; he is not sure that he will always have work, he is not sure that he will always be healthy, and he foresees that he will one day be old and unfit to work. If he falls into poverty, even if only through a prolonged illness, he is then completely helpless, exam_ins to his own devices, and society does not currently recognize any real obligation towards him beyond the usual help for the poor, even if he has been working all the time ever so faithfully and diligently. The usual help for the poor, however, leaves a lot to be desired, especially in large cities, where it is very much worse than in the country.\"\nOtto von Bismarck, 1884\nOtto von Bismarck likely made this speech in reaction to which of the following issues?\n(A) Social acceptance of child labor (B) Declining life expectancy in Germany (C) Criticisms of German trade tariffs (D) Negative effects attributed to industrial capitalism\nA: Let's think step by step. We refer to Wikipedia articles on world history for help. The passage talks about the grievance of the work under the industrial capitalism. The answer is (D).\n\nQ: This question refers to the following information.\nHe contains all works and desires and all perfumes and all tastes. He enfolds the whole universe and in silence is loving to all. This is the Spirit that is in my heart, this is Brahman. To him I shall come when I go beyond this life, and to him will come he who has faith and doubts not.\n—The Upanishads, India, c. 1000 BCE\nTo which religion does the speaker most likely belong?\n(A) Hinduism (B) Buddhism (C) Shintoism (D) Zoroastrianism\nA: Let's think step by step. We refer to Wikipedia articles on world history for help. Brahman refers to the ultimate reality of all things in the Hindu religion. In contrast, Buddhism does not have a concept of supreme God. The answer is (A).\n\n",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "exact_match",
+          "aggregation": "mean",
+          "higher_is_better": true,
+          "ignore_case": true,
+          "ignore_punctuation": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "</s>",
+          "Q:",
+          "<|im_end|>",
+          "<unk>"
+        ],
+        "do_sample": false,
+        "temperature": 0.0
+      },
+      "repeats": 1,
+      "filter_list": [
+        {
+          "name": "get-answer",
+          "filter": [
+            {
+              "function": "regex",
+              "regex_pattern": "(?<=The answer is )(.*)(?=.)"
+            },
+            {
+              "function": "take_first"
+            }
+          ]
+        }
+      ],
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 0.0
+      }
+    }
+  },
+  "versions": {
+    "mmlu_flan_cot_fewshot_high_school_biology": 0.0,
+    "mmlu_flan_cot_fewshot_high_school_chemistry": 0.0,
+    "mmlu_flan_cot_fewshot_high_school_computer_science": 0.0,
+    "mmlu_flan_cot_fewshot_high_school_geography": 0.0,
+    "mmlu_flan_cot_fewshot_high_school_mathematics": 0.0,
+    "mmlu_flan_cot_fewshot_high_school_microeconomics": 0.0,
+    "mmlu_flan_cot_fewshot_high_school_physics": 0.0,
+    "mmlu_flan_cot_fewshot_high_school_psychology": 0.0,
+    "mmlu_flan_cot_fewshot_high_school_statistics": 0.0,
+    "mmlu_flan_cot_fewshot_high_school_world_history": 0.0
+  },
+  "n-shot": {
+    "mmlu_flan_cot_fewshot_high_school_biology": 0,
+    "mmlu_flan_cot_fewshot_high_school_chemistry": 0,
+    "mmlu_flan_cot_fewshot_high_school_computer_science": 0,
+    "mmlu_flan_cot_fewshot_high_school_geography": 0,
+    "mmlu_flan_cot_fewshot_high_school_mathematics": 0,
+    "mmlu_flan_cot_fewshot_high_school_microeconomics": 0,
+    "mmlu_flan_cot_fewshot_high_school_physics": 0,
+    "mmlu_flan_cot_fewshot_high_school_psychology": 0,
+    "mmlu_flan_cot_fewshot_high_school_statistics": 0,
+    "mmlu_flan_cot_fewshot_high_school_world_history": 0
+  },
+  "config": {
+    "model": "hf",
+    "model_args": "pretrained=meta-llama/Llama-2-7b-chat-hf,parallelize=True",
+    "batch_size": "1",
+    "batch_sizes": [],
+    "device": null,
+    "use_cache": null,
+    "limit": 2.0,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": null
+  },
+  "git_hash": "9516087b",
+  "date": 1712675379.209289,
+  "pretty_env_info": "PyTorch version: 2.0.0+cu117\nIs debug build: False\nCUDA used to build PyTorch: 11.7\nROCM used to build PyTorch: N/A\n\nOS: Ubuntu 20.04.3 LTS (x86_64)\nGCC version: (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0\nClang version: Could not collect\nCMake version: version 3.26.1\nLibc version: glibc-2.31\n\nPython version: 3.10.9 (main, Mar  1 2023, 18:23:06) [GCC 11.2.0] (64-bit runtime)\nPython platform: Linux-5.4.0-81-generic-x86_64-with-glibc2.31\nIs CUDA available: True\nCUDA runtime version: 11.4.152\nCUDA_MODULE_LOADING set to: LAZY\nGPU models and configuration: \nGPU 0: NVIDIA GeForce RTX 3090\nGPU 1: NVIDIA GeForce RTX 3090\nGPU 2: NVIDIA GeForce RTX 3090\nGPU 3: NVIDIA GeForce RTX 3090\nGPU 4: NVIDIA GeForce RTX 3090\nGPU 5: NVIDIA GeForce RTX 3090\nGPU 6: NVIDIA GeForce RTX 3090\nGPU 7: NVIDIA GeForce RTX 3090\n\nNvidia driver version: 470.94\ncuDNN version: Could not collect\nHIP runtime version: N/A\nMIOpen runtime version: N/A\nIs XNNPACK available: True\n\nCPU:\n架构：                           x86_64\nCPU 运行模式：                   32-bit, 64-bit\n字节序：                         Little Endian\nAddress sizes:                   43 bits physical, 48 bits virtual\nCPU:                             128\n在线 CPU 列表：                  0-127\n每个核的线程数：                 2\n每个座的核数：                   32\n座：                             2\nNUMA 节点：                      2\n厂商 ID：                        AuthenticAMD\nCPU 系列：                       23\n型号：                           49\n型号名称：                       AMD EPYC 7502 32-Core Processor\n步进：                           0\nFrequency boost:                 enabled\nCPU MHz：                        1481.697\nCPU 最大 MHz：                   2500.0000\nCPU 最小 MHz：                   1500.0000\nBogoMIPS：                       4999.60\n虚拟化：                         AMD-V\nL1d 缓存：                       2 MiB\nL1i 缓存：                       2 MiB\nL2 缓存：                        32 MiB\nL3 缓存：                        256 MiB\nNUMA 节点0 CPU：                 0-31,64-95\nNUMA 节点1 CPU：                 32-63,96-127\nVulnerability Itlb multihit:     Not affected\nVulnerability L1tf:              Not affected\nVulnerability Mds:               Not affected\nVulnerability Meltdown:          Not affected\nVulnerability Spec store bypass: Mitigation; Speculative Store Bypass disabled via prctl and seccomp\nVulnerability Spectre v1:        Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:        Mitigation; Full AMD retpoline, IBPB conditional, IBRS_FW, STIBP conditional, RSB filling\nVulnerability Srbds:             Not affected\nVulnerability Tsx async abort:   Not affected\n标记：                           fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 hw_pstate sme ssbd mba sev ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr wbnoinvd arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold avic v_vmsave_vmload vgif umip rdpid overflow_recov succor smca\n\nVersions of relevant libraries:\n[pip3] mypy==1.9.0\n[pip3] mypy-extensions==1.0.0\n[pip3] numpy==1.24.2\n[pip3] numpydoc==1.5.0\n[pip3] torch==2.0.0\n[conda] blas                      1.0                         mkl  \n[conda] mkl                       2021.4.0           h06a4308_640  \n[conda] mkl-service               2.4.0           py310h7f8727e_0  \n[conda] mkl_fft                   1.3.1           py310hd6ae3a3_0  \n[conda] mkl_random                1.2.2           py310h00e6091_0  \n[conda] numpy                     1.24.2                   pypi_0    pypi\n[conda] numpydoc                  1.5.0           py310h06a4308_0  \n[conda] torch                     2.0.0                    pypi_0    pypi",
+  "transformers_version": "4.39.3",
+  "upper_git_hash": "9516087b81a61d0e220b22cc1b75be76de23bc10"
+}

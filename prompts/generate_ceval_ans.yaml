@@ -1,0 +1,12 @@
+dataset_path: "data/ceval/formal_ceval/test/chinese_language_and_literature_test.csv"   # 本地或远程路径
+dataset_split: "test"
+prompt_template: |
+  请先给出正确的选项（例如：“The Answer is A.”），然后再提供简要的解释或理由来支持你的答案。
+  # Question:
+  {{question}}
+  A. {{A}}
+  B. {{B}}
+  C. {{C}}
+  D. {{D}}
+  # Answer:
+max_samples: 50

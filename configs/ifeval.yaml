@@ -1,0 +1,5 @@
+dataset_path: data/IFEval/ifeval_input_data.jsonl
+dataset_split: train
+prompt_template: |
+  {{prompt.strip()}}
+max_samples: 50

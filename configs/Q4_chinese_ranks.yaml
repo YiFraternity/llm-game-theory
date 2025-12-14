@@ -1,0 +1,38 @@
+dataset_path: |
+  outputs/Q4/chinese/merged_results.json
+dataset_split: "test"
+prompt_template: |
+  You are a reviewer assigned to rank multiple answers written in Chinese. Your evaluation must be based solely on the following three criteria:
+
+  **Linguistic Accuracy**: Are the grammar, vocabulary, and expressions consistent with standard modern Chinese?
+  **Clarity of Expression**: Is the language smooth, natural, and easy to understand? Is the logic clearly conveyed?
+  **Contextual Appropriateness**: Does the response match the intended tone, audience, and context of the prompt?
+
+  Please strictly follow the format below:
+
+  Here is the question and the options:
+  [Question]
+  {{prompt}}
+  ---
+
+  [Solution - 1]
+  {{resps[0]}}
+  [Solution - 2]
+  {{resps[1]}}
+  [Solution - 3]
+  {{resps[2]}}
+  [Solution - 4]
+  {{resps[3]}}
+  [Solution - 5]
+  {{resps[4]}}
+  [Solution - 6]
+  {{resps[5]}}
+
+  ✅ **Output Format (Rank from best to worst):**
+  1. Solution x
+  2. Solution y
+  3. Solution z
+  ...
+
+  You must rank **all six solutions**, without skipping or tying any of them.
+  Please Note: You must return the **final ordered list by solution number** first, and then provide the explanation.

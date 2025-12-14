@@ -1,0 +1,5 @@
+dataset_path: "data/llm_generate_questions/overall.json"   # 本地或远程路径
+dataset_split: "test"
+prompt_template: |
+  {{question.strip()}}
+max_samples: 50

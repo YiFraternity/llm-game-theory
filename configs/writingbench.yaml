@@ -1,0 +1,6 @@
+dataset_path: |
+  data/WritingBench/benchmark_query/benchmark_all.jsonl
+dataset_split: "test"
+prompt_template: |
+  {{query.strip()}}
+max_samples: 100

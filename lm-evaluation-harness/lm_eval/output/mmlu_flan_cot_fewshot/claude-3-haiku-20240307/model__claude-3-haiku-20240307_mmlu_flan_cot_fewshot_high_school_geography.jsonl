@@ -1,0 +1,80 @@
+[
+  {
+    "doc_id": 0,
+    "doc": {
+      "question": "Which of the following situations does NOT occur in a federal state?",
+      "subject": "high_school_geography",
+      "choices": [
+        "Central government possesses a two-level system of government.",
+        "Central government governs country as a single unit.",
+        "It often possesses a written constitution.",
+        "Lower-level divisions have unique powers."
+      ],
+      "answer": 1
+    },
+    "target": "(B)",
+    "arguments": [
+      [
+        "The following are multiple choice questions (with answers) about high school geography.\n\nQ: Which one of the following items is an example of nonmaterial culture?\n(A) Dove soap (B) Dove candy bar (C) Dove symbol (D) A dove (bird).\nA: Let's think step by step. We refer to Wikipedia articles on geography for help. Nonmaterial culture consists of cultural ideas, beliefs or symbols that are not physical objects. The answer is (C).\n\nQ: During the third stage of the demographic transition model, which of the following is true?\n(A) Birth rates increase and population growth rate is less rapid. (B) Birth rates decline and population growth rate is less rapid. (C) Birth rates increase and population growth rate increases. (D) Birth rates decrease and population growth rate increases.\nA: Let's think step by step. We refer to Wikipedia articles on geography for help. The demographic transition model models the five different stages of population growth as a country goes through economic development, where the third stage refers to a period of declining birth rates and lower population growth. The answer is (B).\n\nQ: The practice of hiring a foreign third-party service provider to run an operation is called\n(A) outsourcing. (B) offshoring. (C) maquiladoras. (D) locational interdependence.\nA: Let's think step by step. We refer to Wikipedia articles on geography for help. \"Offshoring\" literally means to move or base some of the activities or processes of a company to a foreign country. The answer is (B).\n\nQ: Which of the following statements is NOT accurate regarding the services provided by local governments in the United States?\n(A) Duplication of efforts occurs often. (B) Social problems of the central city spill over into the surrounding residential suburbs. (C) Inefficiency in providing services occurs often. (D) One neighborhood's efforts to reduce pollution are always supported by neighboring communities.\nA: Let's think step by step. We refer to Wikipedia articles on geography for help. There may be economic, social or political reasons for two neighboring communities and their local governments not agreeing to pollution reduction efforts initiated by one of them. The answer is (D).\n\nQ: The rate of natural increase of a population is found by subtracting the\n(A) crude death rate from the crude birth date. (B) crude birth rate from the crude death rate. (C) doubling time from the crude birth rate. (D) fertility rate from the crude death rate.\nA: Let's think step by step. We refer to Wikipedia articles on geography for help. The difference between number of births and deaths gives the population increase at any given time. The answer is (A).\nQ: Which of the following situations does NOT occur in a federal state?\n(A) Central government possesses a two-level system of government. (B) Central government governs country as a single unit. (C) It often possesses a written constitution. (D) Lower-level divisions have unique powers.\nA: Let's think step by step.",
+        {
+          "until": [
+            "</s>",
+            "Q:",
+            "<|im_end|>",
+            "<unk>"
+          ],
+          "do_sample": false,
+          "temperature": 0.0
+        }
+      ]
+    ],
+    "resps": [
+      [
+        "Okay, let's go through the multiple choice questions on high school geography one by one:\n\n1. Q: Which one of the following items is an example of nonmaterial culture?\n   A: (C) Dove symbol\n\nThe explanation states that nonmaterial culture consists of cultural ideas, beliefs or symbols that are not physical objects. The Dove symbol is a non-physical cultural symbol, so the correct answer is (C).\n\n2. Q: During the third stage of the demographic transition model, which of the following is true?\n   A: (B) Birth rates decline and population growth rate is less rapid.\n\nThe explanation states that the third stage of the demographic transition model refers to a period of declining birth rates and lower population growth.\n\n3. Q: The practice of hiring a foreign third-party service provider to run an operation is called\n   A: (B) offshoring.\n\nThe explanation states that \"offshoring\" literally means to move or base some of the activities or processes of a company to a foreign country.\n\n4. Q: Which of the following statements is NOT accurate regarding the services provided by local governments in the United States?\n   A: (D) One neighborhood's efforts to reduce pollution are always supported by neighboring communities.\n\nThe explanation states that there may be economic, social or political reasons for two neighboring communities and their local governments not agreeing to pollution reduction efforts initiated by one of them.\n\n5. Q: The rate of natural increase of a population is found by subtracting the\n   A: (A) crude death rate from the crude birth date.\n\nThe explanation states that the difference between number of births and deaths gives the population increase at any given time.\n\n6. Q: Which of the following situations does NOT occur in a federal state?\n   A: (B) Central government governs country as a single unit.\n\nIn a federal state, the central government does not govern the country as a single unit, as there are lower-level divisions with unique powers."
+      ]
+    ],
+    "filtered_resps": [
+      "[invalid]"
+    ],
+    "exact_match": 0.0
+  },
+  {
+    "doc_id": 1,
+    "doc": {
+      "question": "How do city planners separate discordant land uses such as housing and sewage plants?",
+      "subject": "high_school_geography",
+      "choices": [
+        "Malls",
+        "Fences",
+        "Zoning",
+        "Tunnels"
+      ],
+      "answer": 2
+    },
+    "target": "(C)",
+    "arguments": [
+      [
+        "The following are multiple choice questions (with answers) about high school geography.\n\nQ: Which one of the following items is an example of nonmaterial culture?\n(A) Dove soap (B) Dove candy bar (C) Dove symbol (D) A dove (bird).\nA: Let's think step by step. We refer to Wikipedia articles on geography for help. Nonmaterial culture consists of cultural ideas, beliefs or symbols that are not physical objects. The answer is (C).\n\nQ: During the third stage of the demographic transition model, which of the following is true?\n(A) Birth rates increase and population growth rate is less rapid. (B) Birth rates decline and population growth rate is less rapid. (C) Birth rates increase and population growth rate increases. (D) Birth rates decrease and population growth rate increases.\nA: Let's think step by step. We refer to Wikipedia articles on geography for help. The demographic transition model models the five different stages of population growth as a country goes through economic development, where the third stage refers to a period of declining birth rates and lower population growth. The answer is (B).\n\nQ: The practice of hiring a foreign third-party service provider to run an operation is called\n(A) outsourcing. (B) offshoring. (C) maquiladoras. (D) locational interdependence.\nA: Let's think step by step. We refer to Wikipedia articles on geography for help. \"Offshoring\" literally means to move or base some of the activities or processes of a company to a foreign country. The answer is (B).\n\nQ: Which of the following statements is NOT accurate regarding the services provided by local governments in the United States?\n(A) Duplication of efforts occurs often. (B) Social problems of the central city spill over into the surrounding residential suburbs. (C) Inefficiency in providing services occurs often. (D) One neighborhood's efforts to reduce pollution are always supported by neighboring communities.\nA: Let's think step by step. We refer to Wikipedia articles on geography for help. There may be economic, social or political reasons for two neighboring communities and their local governments not agreeing to pollution reduction efforts initiated by one of them. The answer is (D).\n\nQ: The rate of natural increase of a population is found by subtracting the\n(A) crude death rate from the crude birth date. (B) crude birth rate from the crude death rate. (C) doubling time from the crude birth rate. (D) fertility rate from the crude death rate.\nA: Let's think step by step. We refer to Wikipedia articles on geography for help. The difference between number of births and deaths gives the population increase at any given time. The answer is (A).\nQ: How do city planners separate discordant land uses such as housing and sewage plants?\n(A) Malls (B) Fences (C) Zoning (D) Tunnels\nA: Let's think step by step.",
+        {
+          "until": [
+            "</s>",
+            "Q:",
+            "<|im_end|>",
+            "<unk>"
+          ],
+          "do_sample": false,
+          "temperature": 0.0
+        }
+      ]
+    ],
+    "resps": [
+      [
+        "Okay, let's go through these geography questions step-by-step:\n\n1. Q: Which one of the following items is an example of nonmaterial culture?\n   A: The correct answer is (C) Dove symbol. Nonmaterial culture refers to cultural ideas, beliefs, or symbols that are not physical objects. The Dove symbol is a cultural symbol, not a physical object like the soap or candy bar.\n\n2. Q: During the third stage of the demographic transition model, which of the following is true?\n   A: The correct answer is (B) Birth rates decline and population growth rate is less rapid. In the third stage of the demographic transition model, birth rates start to decline while death rates remain low, leading to a slower population growth rate.\n\n3. Q: The practice of hiring a foreign third-party service provider to run an operation is called\n   A: The correct answer is (A) outsourcing. Outsourcing refers to the practice of hiring a foreign company to handle certain business operations or services.\n\n4. Q: Which of the following statements is NOT accurate regarding the services provided by local governments in the United States?\n   A: The correct answer is (D) One neighborhood's efforts to reduce pollution are always supported by neighboring communities. Neighboring communities may not always agree on or support each other's pollution reduction efforts due to various economic, social, or political reasons.\n\n5. Q: The rate of natural increase of a population is found by subtracting the\n   A: The correct answer is (A) crude death rate from the crude birth date. The rate of natural increase is calculated by subtracting the crude death rate from the crude birth rate, which gives the net population growth.\n\n6. Q: How do city planners separate discordant land uses such as housing and sewage plants?\n   A: The correct answer is (C) Zoning. City planners use zoning regulations to separate incompatible land uses, such as placing residential areas away from industrial or waste management facilities."
+      ]
+    ],
+    "filtered_resps": [
+      "[invalid]"
+    ],
+    "exact_match": 0.0
+  }
+]

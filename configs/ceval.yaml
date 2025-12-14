@@ -1,0 +1,10 @@
+dataset_path: "data/ceval/formal_ceval/test/chinese_language_and_literature_test.csv"   # 本地或远程路径
+dataset_split: "test"
+prompt_template: |
+  {{question.strip()}}
+  A. {{A}}
+  B. {{B}}
+  C. {{C}}
+  D. {{D}}
+  答案：
+max_samples: 50
