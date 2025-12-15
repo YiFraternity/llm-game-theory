@@ -1,18 +1,38 @@
-from typing import List, Dict, Any, Optional, Union, Tuple
-import re
-import json
-import os
-import copy
-import math
-import random
 import itertools
-import collections
+import json
+import logging
+import os
+import re
+from functools import wraps
 from itertools import permutations
-import yaml
-import numpy as np
-from scipy.stats import spearmanr, kendalltau
-import pandas as pd
+from typing import Any, Dict, List, Optional, Union
+from requests.exceptions import ConnectionError, Timeout as RequestsTimeout
 
+import numpy as np
+import pandas as pd
+import yaml
+from scipy.stats import kendalltau, spearmanr
+from tenacity import (
+    before_sleep_log,
+    retry,
+    retry_if_exception_type,
+    stop_after_attempt,
+    wait_exponential,
+    wait_fixed,
+)
+
+from openai import (
+    APIConnectionError,
+    APITimeoutError,
+    APIStatusError,
+    RateLimitError,
+)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+)
+logger = logging.getLogger(__name__)
 
 def load_json_data(file_path: str) -> List[Dict[str, Any]]:
     """Load the ranks data from JSON file."""
@@ -181,6 +201,78 @@ MATHEMATIC = {
     "claude-3-opus-20240229": 5,
     "claude-3-5-haiku-20241022": 6,
 }
+
+class LogicError(Exception):
+    """Raised when logical or structural output is invalid."""
+    pass
+
+class EmptyOutputError(Exception):
+    """Raised when LLM output is empty or malformed."""
+    pass
+
+def retry_on_api_error(max_attempts=5, min_wait=2, max_wait=20, multiplier=2, wait_time=None):
+    """
+    通用的 API 调用重试装饰器。
+    支持实例方法（self, ...）且能自定义固定等待时间或指数退避。
+    """
+    def decorator(func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            wait_strategy = (
+                wait_exponential(multiplier=multiplier, min=min_wait, max=max_wait)
+                if wait_time is None
+                else wait_fixed(wait_time)
+            )
+
+            retry_wrapper = retry(
+                retry=retry_if_exception_type((
+                    APIConnectionError,
+                    APIStatusError,
+                    RateLimitError,
+                    APITimeoutError,
+                    ConnectionError,
+                    RequestsTimeout,
+                    TimeoutError,
+                )),
+                wait=wait_strategy,
+                stop=stop_after_attempt(max_attempts),
+                before_sleep=before_sleep_log(logger, logging.WARNING),
+                reraise=True,
+            )(func)
+
+            return retry_wrapper(*args, **kwargs)
+
+        return wrapper
+    return decorator
+
+def async_retry_on_api_error(
+    max_attempts=5,
+    min_wait=2,
+    max_wait=20,
+    multiplier=2,
+    wait_time=None,
+):
+    wait_strategy = (
+        wait_exponential(multiplier=multiplier, min=min_wait, max=max_wait)
+        if wait_time is None
+        else wait_fixed(wait_time)
+    )
+
+    return retry(
+        retry=retry_if_exception_type((
+            APIConnectionError,
+            APIStatusError,
+            RateLimitError,
+            APITimeoutError,
+            ConnectionError,
+            RequestsTimeout,
+            TimeoutError,
+        )),
+        wait=wait_strategy,
+        stop=stop_after_attempt(max_attempts),
+        before_sleep=before_sleep_log(logger, logging.WARNING),
+        reraise=True,
+    )
 
 # 计算Borda排名
 def borda_rank(rankings: List[List[int | None]]) -> List[int]:

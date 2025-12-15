@@ -68,7 +68,7 @@ def load_results(dataset_dir: str) -> Dict[int, Dict[str, Any]]:
                         if sample_id is not None:
                             results[sample_id][model_name] = {
                                 'response': data.get('response', ''),
-                                'prompt': data.get('prompt', '')
+                                'prompt': data.get('text') or data.get('question') or data.get('query') or data.get('prompt'),
                             }
                     except json.JSONDecodeError as e:
                         print(f"Warning: Could not parse line in {file_path}: {e}")

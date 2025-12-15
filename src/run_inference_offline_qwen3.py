@@ -19,9 +19,10 @@ from datasets import load_dataset
 import pandas as pd
 import yaml
 from dotenv import load_dotenv
+from transformers import AutoTokenizer
 from utils import (
     load_llm,
-    prepare_batch_prompts,
+    populate_template,
 )
 
 
@@ -55,6 +56,7 @@ class VLLMInference:
             model_name_or_path=model_name_or_path,
             gpu_num=gpu_num,
         )
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name_or_path)
 
     def load_and_sample_dataset(self) -> List[Dict[str, Any]]:
         try:
@@ -84,8 +86,25 @@ class VLLMInference:
         except Exception as e:
             raise Exception(f"Error loading dataset: {str(e)}") from e
 
+    def prepare_batch_prompts(self, datasets: list[dict], prompt_template:str, system_prompt: str) -> List[str]:
+        texts = []
+        for data in datasets:
+            prompt = populate_template(prompt_template, data)
+            messages = [
+                {'role': 'system', 'content': system_prompt},
+                {'role': 'user', 'content': prompt}
+            ]
+            text = self.tokenizer.apply_chat_template(
+                messages,
+                tokenize=False,
+                add_generation_prompt=True,
+                enable_thinking=False,  # Set to False to strictly disable thinking
+            )
+            texts.append(text)
+        return texts
+
     def generate_batch(self, prompts: List[str]) -> List[str]:
-        outputs_t = self.llm.chat(prompts, self.sampling_params, use_tqdm=True)
+        outputs_t = self.llm.generate(prompts, self.sampling_params)
         pred_lst = []
         for o_t in outputs_t:
             pred_lst.append(o_t.outputs[0].text)
@@ -99,7 +118,7 @@ class VLLMInference:
         print(f"Loading dataset: {self.ds_config.dataset_path}")
         datasets = self.load_and_sample_dataset()
 
-        prompts = prepare_batch_prompts(datasets, self.ds_config.prompt_template, self.system_prompt)
+        prompts = self.prepare_batch_prompts(datasets, self.ds_config.prompt_template, self.system_prompt)
         infer_texts = self.generate_batch(prompts)
         results = []
         idx = 0
@@ -126,7 +145,7 @@ def main():
     parser.add_argument(
         "--model-name-or-path",
         type=str,
-        default="/group_homes/our_llm_domain/home/share/open_models/Qwen/Qwen2.5-14B-Instruct",
+        default="/group_homes/our_llm_domain/home/share/open_models/Qwen/Qwen3-32B-Instruct",
         help="vLLM model name or path",
     )
     parser.add_argument(
@@ -150,7 +169,7 @@ def main():
     parser.add_argument(
         "--output-dir",
         type=str,
-        default="./outputs/writingbench/Qwen2.5-14B-Instruct",
+        default="./outputs/writingbench/Qwen3-32B",
         help="Output directory",
     )
     parser.add_argument(
